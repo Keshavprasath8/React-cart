@@ -1,0 +1,75 @@
+
+#card{
+    width: 220px;
+    height: fit-content;
+    background-color: #d8d8d846;
+    border: 0px solid #ccc;
+    border-radius: 10%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#card:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+.imge{
+    width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    transition: width 0.3s, height 0.3s;
+}
+#card:hover .imge {
+    width: 210px;
+    height: 210px;
+}
+#cnt{
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+#btn{
+    background-color: rgba(0, 0, 0, 0.659);
+    color: #ffffffdd;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:20px;
+    font-weight: 550;
+    border: none;
+     box-shadow: 5px 5px 5px  rgba(30, 30, 30, 0.444);
+}
+#btn:hover{
+    background-color: #ffffffdd;
+    color: rgba(70, 70, 70, 0.934);
+    border: none;
+    box-shadow: 5px 5px 5px  rgba(30, 30, 30, 0.444);
+
+}
+.title:hover{
+    color: rgba(172, 189, 201, 0.829);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: larger;
+}
+.title{
+    font-size: medium;
+    font-weight: 550;
+    margin-bottom: 0;
+    color: rgba(0, 0, 0, 0.627);
+}
+.price h3{
+    font-size: medium;
+    font-weight: 550;
+    margin-bottom: 0;
+}
+
+.imge:hover{
+    width: 210px;
+    height: 210px;
+}
