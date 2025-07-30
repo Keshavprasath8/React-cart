@@ -3,6 +3,7 @@
     width: 220px;
     height: fit-content;
     background-color: #d8d8d846;
+    
     border: 0px solid #ccc;
     border-radius: 10%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -12,18 +13,18 @@
 
 #card:hover{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
+    transform: scale(1.10);
     transition: transform 0.3s ease-in-out;
 }
 .imge{
     width: 200px;
     height: 200px;
     border-radius: 10%;
-    transition: width 0.3s, height 0.3s;
+    /* transition: width 0.3s, height 0.3s; */
 }
 #card:hover .imge {
-    width: 210px;
-    height: 210px;
+    width: 200px;
+    height: 200px;
 }
 #cnt{
     margin-left: 20px;
@@ -52,15 +53,16 @@
 
 }
 .title:hover{
-    color: rgba(172, 189, 201, 0.829);
+    color: rgba(0, 0, 0, 0.808);
     cursor: pointer;
-    font-weight: 600;
-    font-size: larger;
+    font-weight: 750;
+    /* font-size: larger; */
+  
 }
 .title{
     font-size: medium;
     font-weight: 550;
-    margin-bottom: 0;
+padding-top: 10px;
     color: rgba(0, 0, 0, 0.627);
 }
 .price h3{

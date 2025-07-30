@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import toast from 'react-hot-toast';
 
 const LoginPage = () => {
 const [mail, setMail] = useState('');
@@ -13,16 +13,17 @@ const handleSubmit = () => {
     if (mail && password && username) {
         if(password.length > 6) {
            navigate('/home',{state:{name: username}});
-           alert("Login successful");
+           toast.success(`Logged successfully ${username}`);
          }
          else {
-            alert("Password must be at least 6 characters long");
+            toast.error("Password must be at least 6 characters long");
             setPassword('');
          }
          
     }
     else {
-        alert("Please fill all fields");
+       
+        toast.error("Please fill all fields");
         setMail('');
         setPassword('');
         setUsername('');
@@ -30,7 +31,7 @@ const handleSubmit = () => {
 }
 
     return (
-    <div className='h-screen  flex justify-center items-center bg-[url(./assets/img/login3.png)] bg-cover bg-center'>
+    <div className='h-screen  flex justify-center items-center bg-[url(./assets/img/login3.png)] bg-cover bg-center '>
         <div style={{boxShadow:"17px 20px 50px 10px black",}} className='border-1 p-10 text-center rounded-tl-[200px] rounded-br-[200px]'> 
         <h1 style={{ fontFamily:"Satisfy"}} className='text-5xl text-black pb-10'>Login Page</h1>
               <style>

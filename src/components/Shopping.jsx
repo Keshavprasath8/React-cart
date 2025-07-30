@@ -7,8 +7,6 @@ import { cartto } from '../features/addCart';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
-import Carusol from './Carusol';
-import Hero from './Hero';
 import cart from "../assets/img/cart1.gif"
 
 
@@ -17,15 +15,14 @@ const FetchPage = () => {
 
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
-  const [hoverId, setHoverId] = useState(null);
-
+  const [hoverId1, setHoverId1] = useState(null);
 
   const fetchData = async () => {
     try {
       const response = await fetch('https://fakestoreapi.in/api/products');
       const result = await response.json();
       setData(result.products);
-      console.log("dadas", result);
+      console.log(result);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -57,11 +54,8 @@ const FetchPage = () => {
           
         `}
       </style>
-          
-      <nav className='sticky top-0 z-50'> <Navbar /></nav>
-           <Hero />
-           <Carusol/>
-           
+           <Navbar  />
+
         <div className=' flex flex-wrap gap-10 px-5 py-5 justify-center items-center'>
           { data.map( (item, index) => {
             return (
@@ -69,22 +63,21 @@ const FetchPage = () => {
                 <div className='contain w-fit' key={index}>
                   <div className='card ' id='card'>
                     <div >
-                      <img className='imge' src={item.image} alt="ime" />
+                      <img className='imge' id='imge' src={item.image} alt="ime" />
                       <Link className='text-decoration-none ' to={`/products/${item.id}`}><h2 className='title ' id='cnt' style={{ width: "fit-content" }}> {item.title.length > 30 ? item.title.substring(0, 15) + "..." : item.title} </h2></Link>
                     </div>
                     <div id='cnt'>
                       <h3 className='fs-6 text-black'>Price $ : {item.price}</h3>
-    <button 
-        key={item.id} id={`btn-${item.id}`}
-        className={`font-normal border-2 rounded-2xl mt-2 px-3 py-1 text-[15px] transition-all duration-300 ease-in-out hover:bg-gray-50 hover:border-black hover:text-black`}
-        style={{transform: "scale(1.10)", width: "160px",height: "40px",display: "flex",justifyContent: "center",alignItems: "center",gap: "6px"}}
-        onMouseEnter={() => setHoverId(item.id)}
-        onMouseLeave={() => setHoverId(null)}
-        onClick={() => handle(item)}>
-        {hoverId === item.id ? (<><img src={cart} alt="cart" className="w-5 h-5" /><span>Add to Cart</span></>) : ("Add to Cart")}
-    </button>
-
-                   </div>
+                         <button 
+                              key={item.id} id={`btn-${item.id}`}
+                              className={`font-normal border-2 rounded-2xl mt-2 px-3 py-1 text-[15px] transition-all duration-300 ease-in-out hover:bg-gray-50 hover:border-black hover:text-black`}
+                              style={{transform: "scale(1.10)", width: "160px",height: "40px",display: "flex",justifyContent: "center",alignItems: "center",gap: "6px"}}
+                              onMouseEnter={() => setHoverId1(item.id)}
+                              onMouseLeave={() => setHoverId1(null)}
+                              onClick={() => handle(item)}>
+                              {hoverId1 === item.id ? (<><img src={cart} alt="cart" className="w-5 h-5" /><span>Add to Cart</span></>) : ("Add to Cart")}
+                          </button>
+                    </div>
                   </div>
                 </div>
               </div>
