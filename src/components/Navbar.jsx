@@ -15,6 +15,7 @@ import { IoMdLogOut } from "react-icons/io";
 import { PiShoppingCartDuotone } from "react-icons/pi";
 
 
+
 const Navbar = () => {
   const [hovered, setHovered] = useState(false);
   const [hovered0, setHovered0] = useState(false);
@@ -22,30 +23,28 @@ const Navbar = () => {
   const [hovered2, setHovered2] = useState(false);
   const [hovered3, setHovered3] = useState(false);
 
+
+
+
   const handleLogout = () => {
     toast.success("Successfully logged out");
   };
 
   return (
-    <div>
-      
-      <Topnav />
-
-  
+    <div> 
+      {/* <Topnav /> */}
       <nav className='flex fixed z-10 backdrop-blur-3xl bg-[#5757573b] justify-between items-center p-2 pr-5 w-full shadow-md'>
-
-
- 
         <div className='flex items-center justify-between w-screen gap-10'>
-          
+ 
             <a href='/home'><img className='w-[60px] h-[60px] rounded-full' src={logo} alt="logo" /></a> 
           <label htmlFor="nav-drawer" className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
           </label>
+
           
         </div>
 
- 
+        
         <ul className='hidden lg:flex space-x-4 gap-5 items-center'>
 
           <li onMouseEnter={() => setHovered0(true)} onMouseLeave={() => setHovered0(false)}
