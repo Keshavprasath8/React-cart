@@ -2,6 +2,8 @@
 import '../assets/product.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart } from '../features/addCart';  
+import toast from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { useState } from 'react';
@@ -16,28 +18,29 @@ const dispatch = useDispatch();
 
 const handleRemove= (itemId) => {
   dispatch(removeFromCart(itemId));
+  toast.error("Item removed from cart!");
 }
   return (
-    <div className="fetch h-screen w-screen">
+<>
+<Navbar />
+    <div className="fetch w-screen  h-screen">
             <style>
         {`.fetch{
             background: linear-gradient(to bottom, #1d2b64, #f8cdda);
             background-size: cover;
             backaround-repeat: no-repeat;
             background-attachment: fixed;
-            width: full;
-            height: full;
+            
             }
           
         `}
       </style>
-      <Navbar/>
-      <div className='flex justify-between w-screen px-5 py-4'>
-        <h2 className="text-xl font-bold">Cart ({cartItems.length} items)</h2>
-        <h3 className="text-right text-lg font-semibold">Total: ${totalPrice.toFixed(2)}</h3>
-      </div>
+     
 
-      <div className='fetch flex flex-wrap gap-10 px-5 py-5 items-center'>
+  
+
+
+      <div className='fetch flex overflow-hidden flex-wrap gap-10 px-10 py-5 pt-40 pb-22 items-center'>
         {cartItems.length === 0 ? (
             <>
             <p className="text-gray-500 text-center  mt-8 text-lg w-full"> <span className='text-3xl text-gray-800'>🛒 Cart is empty</span></p>
@@ -48,7 +51,7 @@ const handleRemove= (itemId) => {
 
           cartItems.map( (item, index) => {
                       return (
-                        <div className='flex' key={index}>
+                        <div className='flex flex-col' key={index}>
                           <div className='contain w-fit' key={index}>
                             <div className='card ' id='card'>
                               <div >
@@ -74,7 +77,12 @@ const handleRemove= (itemId) => {
                        ) } )
         )}
       </div>
-    </div>
+            <div className='flex fixed top-[65px] bg-gray-700 justify-between w-screen px-5 py-4'>
+        <h2 className="text-2xl font-bold">Cart ({cartItems.length} items)</h2>
+        <h3 className="text-right text-xl font-semibold">Total: ${totalPrice.toFixed(2)}</h3>
+      </div>
+      </div>
+   </>
   );
 };
 

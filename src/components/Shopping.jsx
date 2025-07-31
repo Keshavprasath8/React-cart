@@ -8,7 +8,7 @@ import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import cart from "../assets/img/cart1.gif"
-
+ import { motion, useScroll } from "framer-motion";
 
 const FetchPage = () => {
 
@@ -16,6 +16,7 @@ const FetchPage = () => {
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [hoverId1, setHoverId1] = useState(null);
+   const { scrollYProgress } = useScroll();
 
   const fetchData = async () => {
     try {
@@ -55,8 +56,12 @@ const FetchPage = () => {
         `}
       </style>
            <Navbar  />
+                 <motion.div
+        className="progress-bar"
+        style={{ scaleX: scrollYProgress }}
+      />
 
-        <div className=' flex flex-wrap gap-10 px-5 py-5 justify-center items-center'>
+        <div className=' flex flex-wrap gap-10 mt-17 px-5 py-5 justify-center items-center'>
           { data.map( (item, index) => {
             return (
               <div className='flex' key={index}>

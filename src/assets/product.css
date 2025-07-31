@@ -1,4 +1,13 @@
-
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #ff5454df,#fe7575df, #142b54,#021639);
+  transform-origin: 0%;
+  border-radius: 50px;
+}
 #card{
     width: 220px;
     height: fit-content;
@@ -74,4 +83,9 @@ padding-top: 10px;
 .imge:hover{
     width: 210px;
     height: 210px;
+}
+
+#_rht_toaster{
+    margin-top: 50px;
+    
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
@@ -31,28 +31,60 @@ const handleSubmit = () => {
 }
 
     return (
-    <div className='h-screen  flex justify-center items-center bg-[url(./assets/img/login3.png)] bg-cover bg-center '>
-        <div style={{boxShadow:"17px 20px 50px 10px black",}} className='border-1 p-10 text-center rounded-tl-[200px] rounded-br-[200px]'> 
-        <h1 style={{ fontFamily:"Satisfy"}} className='text-5xl text-black pb-10'>Login Page</h1>
-              <style>
-        {`
+        <div className='min-h-screen flex justify-center items-center bg-[url(./assets/img/login1.jpg)] bg-cover bg-center sm:bg-[url(./assets/img/login3.png)] p-4'>
+      <div
+        className='w-full max-w-md p-6 sm:p-10 text-center bg-[#f8cdd] rounded-tl-[150px] rounded-br-[150px] shadow-2xl text-gray-950'
+        style={{ boxShadow: '17px 20px 50px 10px black' }}
+      >
+        <h1
+          className='text-4xl sm:text-5xl font-bold pb-8 text-black'
+          style={{ fontFamily: 'Satisfy' }}
+        >
+          Login Page
+        </h1>
+
+        <style>{`
           ::placeholder {
             color: black;
-            opacity: 10;
+            opacity: 1;
           }
-        `}
-      </style>
-        <div style={{color:' black'}} className='mx-auto w-96'>
-            <input style={{boxShadow:"4px 3px 10px 1px ",}}  value={username}  className='text-center border-2 rounded-4xl py-2 mb-5 mx-auto w-70' placeholder='Enter Username' onChange={(e)=>setUsername(e.target.value)} type="text" />
-            <br />
-            <input style={{boxShadow:"4px 3px 10px 1px black",}} value={mail} className='text-center border-2 py-2 rounded-4xl mx-auto mb-5 w-70' placeholder={`Enter Mail I'D `} onChange={(e)=>setMail(e.target.value)} type="email"  />
-            <br />
-            <input style={{boxShadow:"4px 3px 10px 1px black",}} value={password} className='text-center border-2 rounded-4xl py-2 mx-auto mb-5 w-70' placeholder='Enter Password' onChange={(e)=>setPassword(e.target.value)} type="password" />
-            <br />  
-           
+        `}</style>
+
+        <div className='space-y-4'>
+          <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            type='text'
+            placeholder='Enter Username'
+            className='w-full px-4 py-2 border-2 rounded-full text-center shadow-md'
+          />
+
+          <input
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
+            type='email'
+            placeholder="Enter Mail I'D"
+            className='w-full px-4 py-2 border-2 rounded-full text-center shadow-md'
+          />
+
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type='password'
+            placeholder='Enter Password'
+            className='w-full px-4 py-2 border-2 rounded-full text-center shadow-md'
+          />
         </div>
-         <button style={{boxShadow:"5px 5px 5px 1px black",}} type="submit" className=' hover:bg-rose-200 p-2 text-[17px] font-medium text-black  hover:text-neutral-800 border-[0.1px] w-40 rounded-tr-[200px] rounded-bl-[200px]' onClick={handleSubmit}>Login</button>
-    </div>
+
+        <button
+          onClick={handleSubmit}
+          className='mt-6 w-40 py-2 border text-[17px] font-medium text-black hover:bg-rose-200 hover:text-neutral-800 rounded-tr-full rounded-bl-full shadow-md transition'
+          type='submit'
+          style={{ boxShadow: '5px 5px 5px 1px black' }}
+        >
+          Login
+        </button>
+      </div>
     </div>
   )
 }
